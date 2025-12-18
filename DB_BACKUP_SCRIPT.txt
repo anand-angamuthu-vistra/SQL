@@ -1,0 +1,9 @@
+CREATE SCHEMA ML1;
+SELECT 'SELECT * INTO ML1.'+t.name+' FROM dbo.'+t.name+';'
+--    s.name AS SchemaName,
+--    t.name AS TableName
+FROM sys.tables AS t
+INNER JOIN sys.schemas AS s 
+    ON t.schema_id = s.schema_id
+WHERE s.name = 'dbo'
+ORDER BY t.name;
